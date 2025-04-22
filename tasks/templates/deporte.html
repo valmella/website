@@ -102,36 +102,6 @@
         </div>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const cartCount = document.getElementById("cart-count"); // Contador del carrito
-            const buttons = document.querySelectorAll(".add-to-cart"); // Botones de agregar
 
-            // Cargar carrito desde localStorage
-            let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-            // Actualiza el contador del carrito
-            function updateCartCount() {
-                cartCount.textContent = cart.length;
-            }
-
-            // Agregar juego al carrito
-            buttons.forEach(button => {
-                button.addEventListener("click", function () {
-                    const name = this.getAttribute("data-name");
-                    const price = parseFloat(this.getAttribute("data-price"));
-
-                    // Agregar al carrito
-                    cart.push({ name, price });
-                    localStorage.setItem("cart", JSON.stringify(cart)); // Guardar en localStorage
-
-                    updateCartCount(); // Actualizar el contador
-                    alert(`${name} ha sido agregado al carrito.`);
-                });
-            });
-
-            updateCartCount(); // Asegurar que el contador se actualice al cargar la página
-        });
-    </script>
 </body>
 </html>
